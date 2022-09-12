@@ -2,6 +2,7 @@
 
 :root {
 	--logo-brand-color: #2196f3;
+	--btn-hover-bgcolor: #188CE8;
 	--logo-positive-color: #000;
 	--logo-negative-color: #fff;
 	--grey: #757575;
@@ -36,15 +37,20 @@ img {
 }
 
 /* Знімаю стилізацію з ul */
-.list-style {
+ul,
+ol {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
 /* Знімаю стилізацію з <a> */
-.link-decor {
+a {
 	text-decoration: none;
+}
+
+textarea {
+	resize: none;
 }
 
 /* ============= /Скидання стилів ============= */
@@ -97,6 +103,8 @@ img {
 
 .social-link-icon {
 	fill: currentColor;
+	width: 20px;
+	height: 20px;
 }
 
 footer .social-link {
@@ -290,7 +298,9 @@ footer .social-link {
 }
 
 .order-button {
-	padding: 10px 32px;
+	width: 200px;
+	height: 50px;
+	padding: 10px;
 	border-radius: 4px;
 	border: transparent;
 
@@ -302,12 +312,13 @@ footer .social-link {
 	color: var(--white);
 	background-color: var(--logo-brand-color);
 	cursor: pointer;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .order-button:hover,
 .order-button:focus {
-	background-color: #188CE8;
+	background-color: var(--btn-hover-bgcolor);
 }
 
 /* ============= /Секція героя ============= */
@@ -520,9 +531,24 @@ footer .social-link {
 	background-color: var(--background-brand-color);
 }
 
+.footer-columns {
+	align-items: baseline;
+	display: flex;
+}
+
+.footeer-contat-column {
+	flex-grow: 1;
+}
+
 footer .logo {
 	display: inline-block;
 	margin-bottom: 20px;
+}
+
+.footer-address-decor {
+	font-style: normal;
+	font-size: 14px;
+	line-height: 1.71;
 }
 
 .footer-contact-item:not(:last-child) {
@@ -530,11 +556,7 @@ footer .logo {
 }
 
 .footer-contact {
-	font-style: normal;
-	font-size: 14px;
-	line-height: 1.71;
 	color: rgba(255, 255, 255, 0.6);
-
 	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -551,7 +573,7 @@ footer .logo {
 	color: var(--logo-brand-color);
 }
 
-.footer-column-two {
+.footer-socials {
 	margin-left: 70px;
 }
 
@@ -562,12 +584,60 @@ footer .logo {
 	text-transform: uppercase;
 	margin-bottom: 20px;
 	color: var(--white);
-
 }
 
-.footer-columns {
-	align-items: baseline;
+.subscribe {
 	display: flex;
+	margin-left: 93px;
+	align-items: flex-end;
+}
+
+.subscribe-field {
+	display: flex;
+	flex-direction: column;
+}
+
+label.footer-title {
+	display: block;
+}
+
+.subscribe-field input {
+
+	width: 358px;
+
+	padding: 15px 16px;
+
+	background-color: var(--background-brand-color);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 4px;
+	/* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
+
+	color: var(--white);
+}
+
+.subscribe-field input::placeholder {
+	font-size: 16px;
+	line-height: 1.25;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-button-box {
+	margin-left: 12px;
+}
+
+.subscribe-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 0;
+	left: 0;
+}
+
+.icon-subscribe-button {
+	width: 24px;
+	height: 24px;
+	fill: currentColor;
+	margin-left: 10px;
 }
 
 /* ============= /footer ============= */
@@ -614,7 +684,9 @@ footer .logo {
 .filter-btn:focus {
 	color: var(--white);
 	background-color: var(--logo-brand-color);
-	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+		0px 1px 2px rgba(0, 0, 0, 0.08),
+		0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* ============= /фільр-кнопки ============= */
@@ -643,7 +715,9 @@ footer .logo {
 
 .card-item-link:hover,
 .card-item-link:focus {
-	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+		0px 4px 4px rgba(0, 0, 0, 0.06),
+		1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .card-item-animation {
@@ -714,7 +788,7 @@ footer .logo {
 }
 
 .card-item-title {
-	/* margin-bottom: 4px; - Григорій сказав прибрати, хоча в проєкті цей відступ є */
+	margin-bottom: 4px;
 
 	font-weight: 700;
 	font-size: 18px;
@@ -724,8 +798,6 @@ footer .logo {
 }
 
 .card-item-description {
-	margin-bottom: 20px;
-
 	font-size: 16px;
 	line-height: 1.88;
 	color: var(--grey);
@@ -736,6 +808,7 @@ footer .logo {
 
 
 /* ============= Модальне вікно ============= */
+/* фон */
 .backdrop {
 	position: fixed;
 	top: 0;
@@ -760,12 +833,14 @@ footer .logo {
 		visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* загальне вікно */
 .modal {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	width: 528px;
-	height: 581px;
+	text-align: center;
+	padding: 40px;
 
 	background-color: var(--white);
 
@@ -773,14 +848,15 @@ footer .logo {
 	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* кнопка закриття зверху праворуч */
 .order-button-close {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
+	padding: 0;
 	position: absolute;
-	top: 4px;
-	right: 4px;
+	top: 8px;
+	right: 8px;
 	width: 30px;
 	height: 30px;
 
@@ -788,6 +864,217 @@ footer .logo {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	background-color: var(--white);
 	cursor: pointer;
+
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.order-button-close:hover,
+.order-button-close:focus {
+	color: var(--logo-brand-color);
+}
+
+.button-close-icon {
+	fill: currentColor;
+	width: 18px;
+	height: 18px;
+	background-position: 50% 50%;
+	background-origin: border-box;
+}
+
+/* заголовок */
+.modal-header {
+	display: block;
+	margin-bottom: 12px;
+
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.15;
+	text-align: center;
+	color: var(--black);
+}
+
+/* поля форми */
+.form-fields {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.form-field-item {
+	display: flex;
+	flex-direction: column;
+
+	font-size: 12px;
+	line-height: 1.67;
+	letter-spacing: 0.01em;
+	color: var(--grey);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field-item:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+
+.form-field-item input {
+	padding: 12px 16px 12px 42px;
+
+	font-size: 16px;
+	line-height: 1.14;
+
+	border: 1px solid;
+	border-radius: 4px;
+	border-color: rgba(33, 33, 33, 0.2);
+
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field-item textarea {
+	padding: 12px 16px;
+	height: 96px;
+
+	font-size: 16px;
+	line-height: 1.14;
+	letter-spacing: 0.01em;
+
+	border: 1px solid;
+	border-radius: 4px;
+	border-color: rgba(33, 33, 33, 0.2);
+
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* бордер на полях введення (може не треба?), і оутлайн коли прибрали мишку з поля */
+.form-field-item:focus .type,
+.form-field-item:hover .type,
+.form-field-item .type:focus-within {
+	/* border-color: var(--logo-brand-color); */
+	outline: 1px solid var(--logo-brand-color);
+}
+
+/* стилі плейсхолдера */
+.form-field-item textarea::placeholder {
+	color: rgba(117, 117, 117, 0.5);
+	font-size: 12px;
+	line-height: 1.167;
+}
+
+.label {
+	display: block;
+	margin-bottom: 4px;
+}
+
+/* іконки на полях введення */
+.modal-box-icon {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	color: var(--black);
+}
+
+.form-icon {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	top: 50%;
+	transform: translateY(-50%);
+	/* margin: 0 12px; */
+	left: 12px;
+
+	fill: currentColor;
+}
+
+.form-field-item:focus-within .form-icon,
+.form-field-item:focus .form-icon,
+.form-field-item:hover .form-icon {
+	color: var(--logo-brand-color);
+}
+
+
+
+/* поле згоди з умовами */
+.accept-module {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.accept-module:hover,
+.accept-module:focus {
+	color: var(--logo-brand-color);
+	/* outline: 1px solid var(--logo-brand-color); */
+	/* border: 1px solid var(--logo-brand-color); */
+	/* border-radius: 4px; */
+}
+
+/* міняю колір іконки чек-боксу при ховері/фокусі */
+.accept-module:hover .icon-checked,
+.accept-module:focus .icon-checked {
+	border-color: var(--logo-brand-color);
+}
+
+
+/* lable з іконкою чекбокосу і текстом "приймаю умови" */
+.accepting {
+	display: flex;
+
+	font-size: 14px;
+	line-height: 1.71;
+}
+
+/* .accepting:focus, */
+/* .accepting:hover { */
+/* outline: 1px solid var(--logo-brand-color); */
+/* border: 1px solid var(--logo-brand-color); */
+/* border-radius: 4px; */
+/* } */
+
+/* коробка з іконкою - за замовчуванням без кольору */
+.icon-accept-box {
+	display: flex;
+	align-items: center;
+	margin-right: 7px;
+
+	color: transparent;
+}
+
+/* стилі іконки чекбоксу за замовчуванням */
+.icon-checked {
+	width: 16px;
+	height: 15px;
+
+	fill: currentColor;
+
+	border: 1px solid var(--black);
+	border-radius: 4px;
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* приховане поле input з type="checkbox" */
+/* зміна стилю іконки чекбоксу при натисканні на .accept-module  */
+.checkboxed:checked+label .icon-checked {
+	/* ? чомусь не спрацьовує background-origin - іконка не стає більшою поки є border*/
+	/* background-origin: border-box; */
+	color: var(--logo-brand-color);
+
+	background-color: var(--logo-brand-color);
+	background-size: contain;
+
+	/* якщо не задати бордер=0, то іконка лишається зменшеною */
+	border: 0;
+}
+
+.checkboxed:focus+label .icon-checked {
+	outline: 1px solid black;
+}
+
+/* додаткова стилізація посилання на "Умови договору" */
+.link-terms {
+	text-decoration: underline;
+	color: var(--logo-brand-color);
 }
 
 /* ============= /Модальне вікно ============= */
